@@ -1,4 +1,4 @@
-package com.inpost.com.session;
+package com.inpost.qa.session;
 
 
 import io.restassured.builder.RequestSpecBuilder;

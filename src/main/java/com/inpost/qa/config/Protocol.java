@@ -1,4 +1,4 @@
-package com.inpost.com.config;
+package com.inpost.qa.config;
 
 public enum Protocol {
     https
