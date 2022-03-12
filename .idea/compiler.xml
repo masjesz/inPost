@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="inPost-API" target="17" />
+      <module name="inPost-API" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
