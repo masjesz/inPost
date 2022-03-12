@@ -1,4 +1,5 @@
-package session;
+package com.inpost.com.session;
+
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.ErrorLoggingFilter;

@@ -1,4 +1,4 @@
-package config;
+package com.inpost.com.config;
 
 import io.cucumber.messages.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.messages.internal.com.fasterxml.jackson.databind.SerializationFeature;
@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import session.Session;
+import com.inpost.com.session.Session;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,7 +34,7 @@ public abstract class Endpoint {
     public URL getURL() {
         if (url == null) {
             try {
-                url = new URL(protocol.toString(), "inpost.pl", path);
+                url = new URL(protocol.toString(), "api-pl-points.easypack24.net", path);
             } catch (IOException e) {
                 e.printStackTrace();
             }
