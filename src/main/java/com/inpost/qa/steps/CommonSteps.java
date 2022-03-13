@@ -1,6 +1,6 @@
 package com.inpost.qa.steps;
 
-import com.inpost.qa.inpost.assertions.GetPaczkomatyAssert;
+import com.inpost.qa.inpost.responses.utils.GetPaczkomatyFromResponse;
 import com.inpost.qa.inpost.sendRequests.ShowMePaczkomaty;
 import com.inpost.qa.session.Session;
 
@@ -10,6 +10,7 @@ import io.restassured.response.Response;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.Assertions;
+
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CommonSteps {
@@ -32,6 +33,6 @@ public class CommonSteps {
 
     @When("Zapisuje listę adresów do pliku")
     public void writeAddressListToFile() {
-        GetPaczkomatyAssert.getPaczkomatyAssert(response).containProvidedAddress(session);
+        GetPaczkomatyFromResponse.getPaczkomatyAssert(response).searchAddressesInResponse();
     }
 }
