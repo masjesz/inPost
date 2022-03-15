@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"json:target/cucumber.json"},
-        glue = "qa.inpost.qa.steps",
+        glue = "com.inpost.qa.steps",
         features = "src/test/resources/features/",
         stepNotifications = true)
-
 public class Runner {
+
 }
