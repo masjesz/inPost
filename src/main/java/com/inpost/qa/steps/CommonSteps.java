@@ -41,5 +41,11 @@ public class CommonSteps {
         GetPaczkomatyItemsResponse response = session.getLastResponse().as(GetPaczkomatyItemsResponse.class);
         assertThat(response).isNotNull();
         response.getItems().forEach(i -> assertThat(i.getAddress_details().getCity()).contains("Warszawa"));
+        response.getItems().forEach(i -> assertThat(
+                i.getAddress_details().getStreet()
+                        + " "
+                        + i.getAddress_details().getBuilding_number())
+                .containsPattern("^((.)+(\\d)+(.)*)$"));
+        response.getItems().forEach(i -> assertThat(i.getAddress_details().getPost_code()).containsPattern("(\\d{2}-?\\d{3})"));
     }
 }
