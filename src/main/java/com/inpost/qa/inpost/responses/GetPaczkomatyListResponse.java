@@ -41,8 +41,6 @@ public class GetPaczkomatyListResponse {
 
     @SneakyThrows
     public void fileWriter() {
-
-
         HashMap<String, String> map
                 = new HashMap<>(getLineAddresses());
 

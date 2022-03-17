@@ -1,38 +1,45 @@
 package com.inpost.qa.steps;
 
+import com.inpost.qa.inpost.client.InPostClient;
+import com.inpost.qa.inpost.responses.GetPaczkomatyItemsResponse;
 import com.inpost.qa.inpost.responses.utils.GetPaczkomatyFromResponse;
-import com.inpost.qa.inpost.sendRequests.ShowMePaczkomaty;
 import com.inpost.qa.session.Session;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import org.assertj.core.api.Assertions;
+import lombok.Data;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@Data
 public class CommonSteps {
 
     final Session session;
     Response response;
-    final ShowMePaczkomaty showMePaczkomaty;
+    final InPostClient client;
 
-    public CommonSteps(Session session, ShowMePaczkomaty showMePaczkomaty) {
+    public CommonSteps(Session session, InPostClient client) {
         this.session = session;
-        this.showMePaczkomaty = showMePaczkomaty;
+        this.client = client;
     }
 
     @Given("Mam listę paczkomatów")
     public void inPostListIsVisible() {
-        response = showMePaczkomaty.request(session);
-        Assertions.assertThat(response.getStatusCode()).isEqualTo(200);
-
+        response = client.getPaczkomatyList(session);
+        assertThat(response.getStatusCode()).isEqualTo(200);
     }
 
     @When("Zapisuje listę adresów do pliku")
     public void writeAddressListToFile() {
         GetPaczkomatyFromResponse.getPaczkomatyAssert(response).searchAddressesInResponse();
+    }
+
+    @Then("Wszystkie paczkomaty mają poprawny adres")
+    public void wszystkiePaczkomatyMajaAdres() {
+        GetPaczkomatyItemsResponse response = session.getLastResponse().as(GetPaczkomatyItemsResponse.class);
+        assertThat(response).isNotNull();
+        response.getItems().forEach(i -> assertThat(i.getAddress_details().getCity()).contains("Warszawa"));
     }
 }

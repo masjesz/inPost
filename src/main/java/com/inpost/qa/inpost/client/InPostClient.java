@@ -19,6 +19,7 @@ public class InPostClient {
     public Response getPaczkomatyList(Session session) {
 
         session.getRequestSpecBuilder().addPathParam("LOCATION", URLDecoder.decode(FIELDS, StandardCharsets.UTF_8.name()));
-        return showMePaczkomatyEndpoint.getList(session);
+        session.setLastResponse(showMePaczkomatyEndpoint.getList(session));
+        return session.getLastResponse();
     }
 }
