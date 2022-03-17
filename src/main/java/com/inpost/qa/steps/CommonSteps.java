@@ -1,8 +1,8 @@
 package com.inpost.qa.steps;
 
 import com.inpost.qa.inpost.client.InPostClient;
-import com.inpost.qa.inpost.responses.GetPaczkomatyItemsResponse;
-import com.inpost.qa.inpost.responses.utils.GetPaczkomatyFromResponse;
+import com.inpost.qa.inpost.responses.getPaczkomatyResponse.GetPaczkomatyItemsResponse;
+import com.inpost.qa.inpost.utils.Paczkomaty;
 import com.inpost.qa.session.Session;
 
 import io.cucumber.java.en.Given;
@@ -33,7 +33,7 @@ public class CommonSteps {
 
     @When("Zapisuje listę adresów do pliku")
     public void writeAddressListToFile() {
-        GetPaczkomatyFromResponse.getPaczkomatyAssert(response).searchAddressesInResponse();
+        Paczkomaty.getPaczkomatyAssert(response).searchAddressesInResponse();
     }
 
     @Then("Wszystkie paczkomaty mają poprawny adres")

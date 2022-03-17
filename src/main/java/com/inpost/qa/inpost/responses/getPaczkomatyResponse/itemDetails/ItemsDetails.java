@@ -1,4 +1,4 @@
-package com.inpost.qa.inpost.responses;
+package com.inpost.qa.inpost.responses.getPaczkomatyResponse.itemDetails;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

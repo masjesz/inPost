@@ -1,4 +1,4 @@
-package com.inpost.qa.inpost.responses;
+package com.inpost.qa.inpost.responses.getPaczkomatyResponse.meta;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,10 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Location {
-
-    Double longitude;
-    Double latitude;
+public class Meta {
+    String href;
+    int count;
+    int page;
+    int per_page;
+    int total_pages;
 }

@@ -1,4 +1,4 @@
-package com.inpost.qa.inpost.responses;
+package com.inpost.qa.inpost.responses.getPaczkomatyResponse.itemDetails;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,10 +10,12 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Meta {
-    String href;
-    int count;
-    int page;
-    int per_page;
-    int total_pages;
+public class AddressDetails {
+    String city;
+    String province;
+    String post_code;
+    String street;
+    String building_number;
+    String flat_number;
+
 }

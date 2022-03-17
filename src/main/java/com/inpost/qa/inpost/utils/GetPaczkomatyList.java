@@ -1,4 +1,4 @@
-package com.inpost.qa.inpost.responses;
+package com.inpost.qa.inpost.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import io.restassured.response.Response;
@@ -13,17 +13,17 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class GetPaczkomatyListResponse {
+public class GetPaczkomatyList {
 
     public final JsonNode response;
     final static String outputFilePath
             = "C:\\Dev\\inPost-API\\src\\main\\resources\\file.txt";
 
-    public static GetPaczkomatyListResponse from(Response response) {
-        return new GetPaczkomatyListResponse(response.as(JsonNode.class));
+    public static GetPaczkomatyList from(Response response) {
+        return new GetPaczkomatyList(response.as(JsonNode.class));
     }
 
-    private GetPaczkomatyListResponse(JsonNode responseNode) {
+    private GetPaczkomatyList(JsonNode responseNode) {
         this.response = responseNode;
     }
 

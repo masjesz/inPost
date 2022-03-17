@@ -1,5 +1,7 @@
-package com.inpost.qa.inpost.responses;
+package com.inpost.qa.inpost.responses.getPaczkomatyResponse;
 
+import com.inpost.qa.inpost.responses.getPaczkomatyResponse.itemDetails.ItemsDetails;
+import com.inpost.qa.inpost.responses.getPaczkomatyResponse.meta.Meta;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
